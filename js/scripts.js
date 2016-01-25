@@ -18,7 +18,7 @@ $(document).ready(function() {
     var inputtedLandmark = $("input#newLandmark").val();
     var inputtedWhen = $("input#newWhen").val();
     var inputtedWithWho = $("input#newWithWho").val();
-    var newPlace = new Place(inputtedLocation, inputtedLandmark);
+    var newPlace = new Place(inputtedLocation, inputtedLandmark, inputtedWhen, inputtedWithWho);
 
     $("ul#locationLandmarks").append("<li><span class='place'>" + newPlace.fullPlace() + "</span></li>");
 
@@ -32,6 +32,8 @@ $(document).ready(function() {
       $(".showPlace h2").text(newPlace.fullPlace());
       $(".location").text(newPlace.location);
       $(".landmark").text(newPlace.landmark);
+      $(".when").text(newPlace.when);
+      $(".who").text(newPlace.withWho);
     });
 
   });
