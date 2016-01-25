@@ -11,7 +11,7 @@ Place.prototype.fullPlace = function() {
 
 //interface
 $(document).ready(function() {
-  $("form#new-contact").submit(function(event) {
+  $("form#newPlace").submit(function(event) {
   event.preventDefault();
 
     var inputtedLocation = $("input#newLocation").val();
@@ -20,11 +20,19 @@ $(document).ready(function() {
     var inputtedWithWho = $("input#newWithWho").val();
     var newPlace = new Place(inputtedLocation, inputtedLandmark);
 
-    $("ul#contacts").append("<li><span class='contact'>" + newPlace.fullPlace() + "</span></li>");
+    $("ul#locationLandmarks").append("<li><span class='place'>" + newPlace.fullPlace() + "</span></li>");
 
     $("input#newLocation").val("");
     $("input#newLandmark").val("");
     $("input#newWhen").val("");
     $("input#newWithWho").val("");
+
+    $(".place").last().click(function() {
+      $(".showPlace").show();
+      $(".showPlace h2").text(newPlace.fullPlace());
+      $(".location").text(newPlace.location);
+      $(".landmark").text(newPlace.landmark);
+    });
+
   });
 });
